@@ -1,0 +1,249 @@
+/* Global Styles for User Management App */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Custom button hover effects */
+.MuiButton-root {
+  transition: all 0.3s ease !important;
+}
+
+/* DataGrid custom styling */
+.MuiDataGrid-root {
+  border: none !important;
+  background: white;
+}
+
+.MuiDataGrid-cell {
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.MuiDataGrid-columnHeaders {
+  background-color: #fafafa !important;
+  border-bottom: 2px solid #e0e0e0 !important;
+  font-weight: 600 !important;
+}
+
+.MuiDataGrid-row:hover {
+  background-color: #f8f9fa !important;
+}
+
+/* Form styling improvements */
+.MuiTextField-root {
+  margin-bottom: 16px;
+}
+
+.MuiFormControl-root {
+  margin-bottom: 16px;
+}
+
+/* Card hover effects */
+.MuiPaper-root {
+  transition: box-shadow 0.3s ease !important;
+}
+
+.MuiPaper-root:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .MuiContainer-root {
+    padding: 8px !important;
+  }
+  
+  .MuiTypography-h4 {
+    font-size: 1.5rem !important;
+  }
+  
+  .MuiTypography-h5 {
+    font-size: 1.25rem !important;
+  }
+  
+  /* Hide certain DataGrid columns on mobile */
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="email"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="email"] {
+    display: none !important;
+  }
+  
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="mobile"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="mobile"] {
+    display: none !important;
+  }
+  
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="location"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="location"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="location"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="location"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="mobile"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="mobile"] {
+    display: none !important;
+  }
+}
+
+/* Mobile-first responsive design improvements */
+@media (max-width: 599px) {
+  /* Hide specific DataGrid columns on mobile */
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="lastName"],
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="lastName"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="location"],
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="location"],
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="status"],
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="status"] {
+    display: none !important;
+  }
+  
+  /* Improve mobile navigation */
+  .MuiAppBar-root .MuiToolbar-root {
+    min-height: 56px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  
+  /* Better spacing for mobile forms */
+  .MuiPaper-root {
+    margin: 8px !important;
+  }
+  
+  /* Responsive text sizing */
+  .MuiTypography-h4 {
+    font-size: 1.5rem !important;
+  }
+  
+  .MuiTypography-h5 {
+    font-size: 1.25rem !important;
+  }
+  
+  /* Better button sizing on mobile */
+  .MuiButton-sizeLarge {
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Improve DataGrid mobile experience */
+  .MuiDataGrid-root {
+    font-size: 0.875rem !important;
+  }
+  
+  .MuiDataGrid-columnHeaders {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Better avatar sizing on mobile */
+  .MuiAvatar-root {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  /* Improve list item spacing on mobile */
+  .MuiListItem-root {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}
+
+@media (max-width: 399px) {
+  /* Extra small screens adjustments */
+  .MuiContainer-root {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="mobile"],
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="mobile"] {
+    display: none !important;
+  }
+  
+  .MuiTypography-h4 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 600px) and (max-width: 959px) {
+  .MuiDataGrid-root .MuiDataGrid-columnHeader[data-field="location"],
+  .MuiDataGrid-root .MuiDataGrid-cell[data-field="location"] {
+    display: none !important;
+  }
+}
+
+/* Desktop and larger screen optimizations */
+@media (min-width: 1200px) {
+  .MuiContainer-root {
+    max-width: 1400px !important;
+  }
+}
+
+/* Global responsive improvements */
+.responsive-text {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.mobile-hide {
+  display: none !important;
+}
+
+@media (min-width: 600px) {
+  .mobile-hide {
+    display: block !important;
+  }
+}
