@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/public', express.static('public'));
 
 const users = require('./routes/users');
-app.use('/users', users);
+app.use('/api/users', users);
 
 // MongoDB connection
 const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/user-management';

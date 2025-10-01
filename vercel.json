@@ -7,28 +7,20 @@
     },
     {
       "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/backend/index.js"
+      "src": "/(api|public)/.*",
+      "dest": "backend/index.js"
     },
     {
-      "src": "/public/(.*)",
-      "dest": "/backend/index.js"
+      "handle": "filesystem"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/frontend/dist/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/dist/index.html"
+      "src": "/.*",
+      "dest": "index.html"
     }
   ]
 }

@@ -100,7 +100,7 @@ const UserDetails = () => {
                             borderRadius: 2
                         }}>
                             <Avatar 
-                                src={user.profile ? `http://localhost:5000${user.profile}` : ''} 
+                                src={user.profile ? user.profile : ''} 
                                 sx={{ 
                                     width: { xs: 120, sm: 150 }, 
                                     height: { xs: 120, sm: 150 }, 

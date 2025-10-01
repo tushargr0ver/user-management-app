@@ -50,7 +50,7 @@ const EditUser = () => {
                 const response = await axios.get(`/api/users/${id}`);
                 setUser(response.data.data);
                 if (response.data.data.profile) {
-                    setPreviewImage(`http://localhost:5000${response.data.data.profile}`);
+                    setPreviewImage(response.data.data.profile);
                 }
             } catch (error) {
                 toast.error('Failed to fetch user details.');
