@@ -22,7 +22,7 @@ import {
     FileDownload,
     Refresh
 } from '@mui/icons-material';
-import axios from 'axios';
+import api from '../services/api';
 import { toast } from 'react-toastify';
 
 const UserList = () => {
@@ -34,7 +34,7 @@ const UserList = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get(`/api/users?page=${page + 1}&limit=${pageSize}`);
+            const response = await api.get(`/users?page=${page + 1}&limit=${pageSize}`);
             setUsers(response.data.data);
             setTotalUsers(response.data.pagination?.totalUsers || response.data.data.length);
         } catch (error) {
@@ -48,7 +48,7 @@ const UserList = () => {
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`/api/users/search/${searchText}`);
+            const response = await api.get(`/users/search/${searchText}`);
             setUsers(response.data.data);
         } catch (error) {
             toast.error('Failed to search users.');
@@ -57,7 +57,7 @@ const UserList = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`/api/users/${id}`);
+            await api.delete(`/users/${id}`);
             toast.success('User deleted successfully!');
             fetchUsers();
         } catch (error) {
@@ -67,7 +67,7 @@ const UserList = () => {
 
     const handleExport = async () => {
         try {
-            const response = await axios.get('/api/users/export', { responseType: 'blob' });
+            const response = await api.get('/users/export', { responseType: 'blob' });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -97,7 +97,7 @@ const UserList = () => {
             align: 'center',
             renderCell: (params) => (
                 <Avatar 
-                    src={params?.value ? `http://localhost:5000${params.value}` : ''} 
+                    src={params?.value ? `https://user-management-app-l764.onrender.com${params.value}` : ''} 
                     sx={{ width: 40, height: 40, mx: 'auto' }}
                 />
             )

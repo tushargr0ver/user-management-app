@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 import {
     Typography,
     Avatar,
@@ -34,7 +34,7 @@ const UserDetails = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`/api/users/${id}`);
+                const response = await api.get(`/users/${id}`);
                 setUser(response.data.data);
             } catch (error) {
                 console.error('Error fetching user details:', error);

@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/system';
 import { ArrowBack, CloudUpload, Person } from '@mui/icons-material';
-import axios from 'axios';
+import api from '../services/api';
 import { toast } from 'react-toastify';
 
 const Input = styled('input')({
@@ -47,7 +47,7 @@ const EditUser = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`/api/users/${id}`);
+                const response = await api.get(`/users/${id}`);
                 setUser(response.data.data);
                 if (response.data.data.profile) {
                     setPreviewImage(response.data.data.profile);
@@ -134,7 +134,7 @@ const EditUser = () => {
                         });
 
                         try {
-                            await axios.put(`/api/users/${id}`, formData, {
+                            await api.put(`/users/${id}`, formData, {
                                 headers: {
                                     'Content-Type': 'multipart/form-data'
                                 }

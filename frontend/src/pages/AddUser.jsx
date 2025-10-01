@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/system';
 import { ArrowBack, CloudUpload, Person } from '@mui/icons-material';
-import axios from 'axios';
+import api from '../services/api';
 import { toast } from 'react-toastify';
 
 const Input = styled('input')({
@@ -112,7 +112,7 @@ const AddUser = () => {
                         });
 
                         try {
-                            await axios.post('/api/users', formData, {
+                            await api.post('/users', formData, {
                                 headers: {
                                     'Content-Type': 'multipart/form-data'
                                 }
