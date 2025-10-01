@@ -50,7 +50,7 @@ const EditUser = () => {
                 const response = await api.get(`/users/${id}`);
                 setUser(response.data.data);
                 if (response.data.data.profile) {
-                    setPreviewImage(response.data.data.profile);
+                    setPreviewImage(`https://user-management-app-l764.onrender.com${response.data.data.profile}`);
                 }
             } catch (error) {
                 toast.error('Failed to fetch user details.');

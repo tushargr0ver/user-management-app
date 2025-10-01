@@ -100,7 +100,7 @@ const UserDetails = () => {
                             borderRadius: 2
                         }}>
                             <Avatar 
-                                src={user.profile ? user.profile : ''} 
+                                src={user.profile ? `https://user-management-app-l764.onrender.com${user.profile}` : ''} 
                                 sx={{ 
                                     width: { xs: 120, sm: 150 }, 
                                     height: { xs: 120, sm: 150 }, 
